@@ -7,16 +7,18 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
+import spring.anno.Bar;
+
 public class Main {
 	
 	public static void main(String args[]){
 		
-		String configLocations ="applicationContext.xml";
+	/*	String configLocations ="applicationContext.xml";
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(configLocations);
 		
-		WriteArticleService articleService = (WriteArticleService) context.getBean("writeArticleService");
+		WriteArticleService articleService = context.getBean("bar",Bar.class);
 		articleService.write(new Article());
-		context.registerShutdownHook();
+		context.registerShutdownHook();*/
 	}
 
 }
