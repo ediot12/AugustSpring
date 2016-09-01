@@ -7,9 +7,20 @@ public class MainDI {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		AbstractApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
-		Foo f = context.getBean("foo1",Foo.class);
-		/*f.doFoo();*/
+		AbstractApplicationContext context = new GenericXmlApplicationContext("DIEx.xml");
+		
+		
+		for(int i=0;i<1000000;i++){
+			
+		}
+		
+		Foo f = context.getBean("foo",Foo.class);
+		
+		f.doFoo();
+		
+		
+		context.registerShutdownHook(); // 
+	
 
 	}
 

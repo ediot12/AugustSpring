@@ -1,38 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans   
-       	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
-
-	<bean name="writeArticleService" class="spring.chap01.WriteArticleServiceImpl">
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+		
+		<context:annotation-config></context:annotation-config>
+		<context:component-scan base-package="spring.chap01"></context:component-scan>
+<!-- 
+	<bean id="writeArticleService" class="spring.chap01.WriteArticleServiceImpl" autowire="byName">
 		<constructor-arg>
 			<ref bean="articleDao" />
 		</constructor-arg>
-	</bean>
+	</bean> -->
 
-	<bean name="articleDao" class="spring.chap01.MySQLArticleDAO">
+
+	<bean id="articleDao" class="spring.chap01.MySQLArticleDAO">
+		<qualifier value="ok"></qualifier>
 	</bean>
+	<!-- <bean id="articleDao1" class="spring.chap01.OracleArticleDao"/> -->
 	
+	
+		
 	<bean id="baz" class="spring.DI.Baz"></bean>
 	<bean id="bar" class="spring.DI.Bar"></bean>
-	<bean id="foo" class="spring.DI.Foo">
-		<constructor-arg>
+	<bean id="foo" class="spring.DI.Foo" p:bar-ref="bar" p:baz-ref="baz">
+		<!-- <constructor-arg>
 			<ref bean="bar"></ref>
 		</constructor-arg>
 		<constructor-arg>
 			<ref bean="baz"></ref>
-		</constructor-arg>
+		</constructor-arg> -->
 	
 	</bean>
 	
 	
-	<bean id="foo1" class="spring.DI.Foo">
-		<constructor-arg>
+	<bean id="foo1" class="spring.DI.Foo" p:str-ref="hello" p:i-ref="10">
+<!-- 		<constructor-arg>
 			<value>hello</value>
 		</constructor-arg>
 		<constructor-arg>
 			<value>10</value>
-		</constructor-arg>
+		</constructor-arg> -->
 	
 	</bean>
 </beans>
