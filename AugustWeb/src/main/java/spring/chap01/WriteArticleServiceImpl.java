@@ -2,10 +2,10 @@ package spring.chap01;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Component;
 
-
-@Component
+@Component("writeArticleService")
 public class WriteArticleServiceImpl implements WriteArticleService{
 	
 	
@@ -16,6 +16,11 @@ public class WriteArticleServiceImpl implements WriteArticleService{
 		// TODO Auto-generated constructor stub
 	}
 	
+	//autowired 되있으면 그 필요한 개체를 연결해줌
+	
+	@Required
+	@Autowired
+	@Qualifier("oracle")
 	public void setArticleDao(ArticleDao articleDao) {
 		this.articleDao = articleDao;
 	}

@@ -5,11 +5,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+@Qualifier("ok")
 public class MySQLArticleDAO implements ArticleDao{
 
-	@Override
-	@Autowired
-	@Qualifier("ok")
 	public void insert(Article article){
 		System.out.println("MySQLArticleDao.insert() ½ÇÇà");
 	}

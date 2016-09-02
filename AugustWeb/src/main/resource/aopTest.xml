@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+		
+		<context:component-scan base-package="spring.aop"/>
+		<context:annotation-config/>
+		<aop:aspectj-autoproxy/>
+		<aop:config proxy-target-class="true"/>
+
+<!-- 	<bean id="greetingTarget" class="spring.aop.GreetingServiceImpl">
+		<property name="greeting">
+			<value>Hello</value>
+		</property>
+	</bean>
+	<bean id="logAspect" class="spring.aop.LogAspect" />
+	<bean id="performanceAspect" class="spring.aop.PerformanceAspect" />
+ -->
+<!-- 	<aop:config>
+		<aop:pointcut expression="execution(public * *(..))" id="publicMethod" />
+		<aop:aspect ref="logAspect">
+			<aop:before method="beforeLogging" pointcut-ref="publicMethod" />
+			<aop:after-returning method="afterLogging"
+				pointcut-ref="publicMethod" returning="returnValue" />
+			<aop:after-throwing method="throwingLogging"
+				pointcut-ref="publicMethod" throwing="ex" />
+			<aop:after method="alwaysLogging" pointcut-ref="publicMethod" />
+
+
+		</aop:aspect>
+		<aop:aspect ref="performanceAspect">
+			<aop:around method="timeCheck" pointcut-ref="publicMethod" />
+			<aop:around method="timeCheck" pointcut="execution(public * spring.aop..*sayHello*(..))" />접근제어자 public 매개변수 모두,패키지 spring.aop 안에 모든 클래스 중에 sayhello 메소드
+		</aop:aspect>
+	</aop:config> -->
+
+
+
+
+
+
+</beans>
