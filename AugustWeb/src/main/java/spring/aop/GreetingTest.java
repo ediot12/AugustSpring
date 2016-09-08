@@ -11,7 +11,7 @@ public class GreetingTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("aopTest.xml");
 		GreetingService bean = ctx.getBean("greetingTarget",GreetingService.class);
 		bean.sayHello("ȫ�浿");
-		System.out.println("=======================================");
+		System.out.println("======================================");
 		/*bean.sayGoodbye("ȫ�浿");*/
 
 	}
